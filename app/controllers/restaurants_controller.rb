@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
   def index
     @restaurants = Restaurant.all
@@ -6,7 +7,9 @@ class RestaurantsController < ApplicationController
 
   def show
     @reservation = Reservation.new
-    @reservations = current_user.reservations
+    if user_signed_in?
+      @reservations = current_user.reservations
+    end
   end
 
   def new
