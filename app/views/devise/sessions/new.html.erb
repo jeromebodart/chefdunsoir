@@ -11,24 +11,6 @@
                 required: true,
                 input_html: { autocomplete: "current-password"
                 } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :firstname,
-                required: false,
-                autofocus: true ,
-                input_html: { autocomplete: "First Name"
-                } %>
-    <%= f.input :lastname,
-                required: false,
-                autofocus: true ,
-                input_html: { autocomplete: "Last Name"
-                } %>
-    <%= f.input :image,
-                required: false,
-                autofocus: true ,
-                input_html: { autocomplete: "Upload your picture"
-                } %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
