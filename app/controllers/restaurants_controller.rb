@@ -5,6 +5,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @reservation = Reservation.new
   end
 
   def new
@@ -46,6 +47,6 @@ class RestaurantsController < ApplicationController
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :category,)
+    params.require(:restaurant).permit(:name, :address, :category)
   end
 end
