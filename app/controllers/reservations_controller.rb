@@ -3,6 +3,8 @@ class ReservationsController < ApplicationController
   # POST   /restaurants/:restaurant_id/reservations
 
   def index
+    @reservations = Reservation.all
+    @reservations.user = current_user
   end
 
   def create
