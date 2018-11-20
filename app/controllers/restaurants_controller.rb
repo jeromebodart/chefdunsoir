@@ -6,6 +6,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @reservation = Reservation.new
+    @reservations = current_user.reservations
   end
 
   def new
