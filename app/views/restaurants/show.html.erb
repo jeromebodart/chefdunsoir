@@ -14,7 +14,7 @@
 </p>
 
 <p>
-  <strong>Pick a reservation:</strong>
+  <strong>Pick a new reservation:</strong>
   <%= simple_form_for [@restaurant, @reservation] do |f| %>
 
     <div class="form-inputs">
@@ -25,6 +25,14 @@
     </div>
   <% end %>
 
+  <p>
+    <% if @reservations != nil %>
+      <strong> My reservations for this restaurant:</strong>
+      <% @reservations.each do |reservation| %>
+      <%= reservation.date %>
+      <% end %>
+    <% end %>
+  </p>
 </p>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |

@@ -4,8 +4,13 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
   end
 
+  def reservations
+    @reservations = Reservation.all
+  end
+
   def show
     @reservation = Reservation.new
+    @reservations = current_user.reservations
   end
 
   def new
