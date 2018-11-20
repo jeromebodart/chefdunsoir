@@ -16,10 +16,10 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
-gem 'carrierwave', '~> 1.2'
-gem 'cloudinary'
 gem 'awesome_print'
-
+gem 'cloudinary', require: false
+gem 'activestorage-cloudinary-service'
+gem "mini_magick"
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -12,15 +12,23 @@
 
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
-                required: false
-                input_html: { autocomplete: "new-password" } %>
+                required: false,
+                input_html: { autocomplete: "new-password"
+                } %>
     <%= f.input :password_confirmation,
                 required: false,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password"
+                } %>
     <%= f.input :current_password,
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :image,
+                required: false,
+                autofocus: true ,
+                default: current_user.image,
+                input_html: { autocomplete: "Upload your picture"
+                } %>
   </div>
 
   <div class="form-actions">
