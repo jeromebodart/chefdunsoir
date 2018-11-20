@@ -1,6 +1,10 @@
 class ReservationsController < ApplicationController
 
   # POST   /restaurants/:restaurant_id/reservations
+
+  def index
+  end
+
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.user = current_user
