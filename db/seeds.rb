@@ -97,9 +97,41 @@ reviews_attributes = [
 Review.create!(reviews_attributes)
 puts 'Finished reviews!'
 
-
-
-
+puts 'Creating reservations...'
+reservations_attributes = [
+{
+    date: "2018-11-14",
+    user_id: user1.id,
+    restaurant_id: resto_fr.id
+},
+{
+    date: "2018-11-12",
+    user_id: user2.id,
+    restaurant_id: resto_fr.id
+},
+{
+    date: "2018-11-14",
+    user_id: user3.id,
+    restaurant_id: resto_ch.id
+},
+{
+    date: "2018-11-11",
+    user_id: user3.id,
+    restaurant_id: resto_fr.id
+},
+{
+    date: "2018-11-14",
+    user_id: user2.id,
+    restaurant_id: resto_fr.id
+},
+{
+    date: "2018-11-14",
+    user_id: user3.id,
+    restaurant_id: resto_ch.id
+}
+]
+Reservation.create!(reservations_attributes)
+puts 'Finished reservations!'
 
 
 
