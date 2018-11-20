@@ -9,21 +9,10 @@
 </p>
 
 <p>
-  <strong>Phone number:</strong>
-  <%= @restaurant.capacity %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @restaurant.priceperday %>
-</p>
-
-<p>
   <strong>Category:</strong>
   <%= @restaurant.category %>
 </p>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %> |
-<%= link_to 'See review', review_path(@restaurant) %> |
-<%= link_to 'Add review', new_restaurant_review_path(@restaurant) %> |
+
