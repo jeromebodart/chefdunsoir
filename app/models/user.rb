@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :restaurants
-  has_many :reservations
+  has_many :reservations, foreign_key: :chef_id
   has_one_attached :image
 end

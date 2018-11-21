@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
   # POST   /restaurants/:restaurant_id/reservations
   def create
     @reservation = Reservation.new(reservation_params)
-    @reservation.user = current_user
+    @reservation.chef = current_user
     @restaurant = Restaurant.find(params[:restaurant_id])
     @reservation.restaurant = @restaurant
 

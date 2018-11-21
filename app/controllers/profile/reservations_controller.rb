@@ -1,8 +1,8 @@
 class Profile::ReservationsController < ApplicationController
-  # POST   /restaurants/:restaurant_id/reservations
 
   def index
     @reservations = current_user.reservations
+    ap "je suis la"
   end
 
   def destroy
