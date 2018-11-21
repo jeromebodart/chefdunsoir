@@ -13,6 +13,8 @@ class ReservationsController < ApplicationController
     end
   end
 
+  private
+
   def reservation_params
     params.require(:reservation).permit(:date)
   end
