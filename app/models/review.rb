@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
-  belongs_to :sender, class_name: 'User'
-  belongs_to :reviewable, polymorphic: true
+  belongs_to :restaurant
+  belongs_to :writter, class_name: 'User'
 end

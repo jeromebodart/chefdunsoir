@@ -6,8 +6,8 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
     <% if user_signed_in? %>
+         <a href="" class="navbar-wagon-item navbar-wagon-link">My reservations</a>
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-right hidden-xs hidden-sm">
         <%= link_to "Ajouter un restaurant", new_restaurant_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -46,6 +46,8 @@
       <% if user_signed_in? %>
         <% if current_user.image.attached? %>
           <%= image_tag current_user.image, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% else %>
+          <%= image_tag "", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% end %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li><%= link_to "#" do %>

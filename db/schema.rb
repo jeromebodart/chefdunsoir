@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_100811) do
+ActiveRecord::Schema.define(version: 2018_11_21_130722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,12 +46,12 @@ ActiveRecord::Schema.define(version: 2018_11_20_100811) do
 
   create_table "reservations", force: :cascade do |t|
     t.date "date"
-    t.bigint "user_id"
     t.bigint "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "chef_id"
+    t.index ["chef_id"], name: "index_reservations_on_chef_id"
     t.index ["restaurant_id"], name: "index_reservations_on_restaurant_id"
-    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -79,16 +79,12 @@ ActiveRecord::Schema.define(version: 2018_11_20_100811) do
   create_table "reviews", force: :cascade do |t|
     t.text "description"
     t.integer "stars"
-    t.boolean "chef"
-    t.bigint "sender_id"
-    t.bigint "receiver_id"
-    t.string "reviewable_id"
-    t.string "reviewable_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["receiver_id"], name: "index_reviews_on_receiver_id"
-    t.index ["reviewable_id", "reviewable_type"], name: "index_reviews_on_reviewable_id_and_reviewable_type"
-    t.index ["sender_id"], name: "index_reviews_on_sender_id"
+    t.bigint "writter_id"
+    t.bigint "restaurant_id"
+    t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
+    t.index ["writter_id"], name: "index_reviews_on_writter_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -101,14 +97,16 @@ ActiveRecord::Schema.define(version: 2018_11_20_100811) do
     t.datetime "updated_at", null: false
     t.string "firstname"
     t.string "lastname"
+    t.text "description"
+    t.string "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "indisponibilities", "restaurants"
   add_foreign_key "reservations", "restaurants"
-  add_foreign_key "reservations", "users"
+  add_foreign_key "reservations", "users", column: "chef_id"
   add_foreign_key "restaurants", "users"
-  add_foreign_key "reviews", "users", column: "receiver_id"
-  add_foreign_key "reviews", "users", column: "sender_id"
+  add_foreign_key "reviews", "restaurants"
+  add_foreign_key "reviews", "users", column: "writter_id"
 end
