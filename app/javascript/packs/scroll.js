@@ -1,27 +1,21 @@
 
-
-// function scroll() {
-//   console.log("scroll")
-//   const reservation = document.querySelector('.reserver');
-
-//   if (reservation) {
-//     window.addEventListener('click', function() {
-//      $("body").animate({ scrollTop: $(window).height()}, 300);
-//     });
-//   }
-// // }
-
 const scroll = () => {
   console.log("scroll")
   const reservation = document.querySelector('.reserver');
-
+  const element = document.querySelector('#container-restaurant-cards')
   if (reservation) {
     reservation.addEventListener('click', function() {
       console.log("click");
-      $('html, body').animate({scrollTop: $(window).height()}, 500);
+      const topPosition = element.offsetTop - document.querySelector('.navbar-wagon').offsetHeight
+      window.scroll({top: topPosition, behavior: "smooth"})
     });
   }
 }
 
 
 export default scroll;
+
+
+
+
+
