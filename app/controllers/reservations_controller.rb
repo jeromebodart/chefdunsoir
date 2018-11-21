@@ -2,7 +2,10 @@ class ReservationsController < ApplicationController
   # POST   /restaurants/:restaurant_id/reservations
 
   def index
+<<<<<<< Updated upstream
     @reservations = Reservation.all
+=======
+>>>>>>> Stashed changes
   end
 
   def create
