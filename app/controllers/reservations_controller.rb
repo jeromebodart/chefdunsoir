@@ -1,13 +1,5 @@
 class ReservationsController < ApplicationController
   # POST   /restaurants/:restaurant_id/reservations
-
-  def index
-<<<<<<< Updated upstream
-    @reservations = Reservation.all
-=======
->>>>>>> Stashed changes
-  end
-
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.user = current_user
@@ -21,7 +13,9 @@ class ReservationsController < ApplicationController
     end
   end
 
+  private
+
   def reservation_params
-    params.require(:reservation).permit(:date).merge(user_id: current_user.id)
+    params.require(:reservation).permit(:date)
   end
 end
