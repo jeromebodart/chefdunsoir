@@ -5,9 +5,8 @@ Rails.application.routes.draw do
     resources :reservations, only: [:create]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :users do
-    resources :reservations, only: [:index]
+  namespace :profile do
+    resources :reservations, only: [:index, :destroy]
   end
-
   resources :reviews
 end
