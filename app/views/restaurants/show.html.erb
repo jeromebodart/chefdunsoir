@@ -1,39 +1,58 @@
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+<div class="container">
 
-<p>
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <%= image_tag'https://ritzcarlton-h.assetsadobe.com/is/image/content/dam/the-ritz-carlton/hotels/usa-and-canada/massachusetts/boston-common/dining/RCBC%20Artisan%20Bistro.png?$LargeViewport100pct$', class: "photo-restaurant" %>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <%= image_tag'https://www.demangel.fr/sites/default/files/inline-images/cuisine_collective/cuisine_collective_3.jpg', class: "photo-restaurant" %>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <%= image_tag'https://www.demangel.fr/sites/default/files/inline-images/cuisine_collective/cuisine_collective_11.jpg', class: "photo-restaurant" %>
+    </div>
+  </div>
 
-<p>
-  <strong>Category:</strong>
-  <%= @restaurant.category %>
-</p>
-<% if user_signed_in? %>
-  <p>
-    <strong>Pick a new reservation:</strong>
-    <%= simple_form_for [@restaurant, @reservation] do |f| %>
+  <div class="card-restaurant">
+    <h1><%= @restaurant.name %></h1>
+    <p>Categorie: <strong><%= @restaurant.category %></strong></p>
+      <%= @restaurant.address %>
+  </div>
 
-      <div class="form-inputs">
-        <%= f.input :date, as: :date, html5: true %>
-      </div>
-      <div class="form-actions">
-        <%= f.button :submit %>
-      </div>
-    <% end %>
+  <div class="card-restaurant">
+    <% if user_signed_in? %>
+      <p>
+        <strong>Faire une reservation</strong>
+        <%= simple_form_for [@restaurant, @reservation] do |f| %>
 
-    <p>
-      <% if @reservations != nil %>
-        <strong> My reservations for this restaurant:</strong>
-        <% @reservations.each do |reservation| %>
-        <%= reservation.date %>
+          <div class="form-inputs">
+            <%= f.input :date, as: :date, html5: true %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit %>
+          </div>
         <% end %>
-      <% end %>
-    </p>
-  </p>
-  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<% end %>
-<%= link_to 'Back', restaurants_path %> |
+
+        <p>
+          <% if @reservations != nil %>
+            <strong> My reservations for this restaurant:</strong>
+            <% @reservations.each do |reservation| %>
+            <%= reservation.date %>
+            <% end %>
+          <% end %>
+        </p>
+      </p>
+    <% end %>
+  </div>
+
+  <%= link_to "Retour à l'accueil", restaurants_path, class: "label label-primary"%>
+
+  <% if current_user == @restaurant.user %>
+    <div class="card-restaurant">
+      <p>Je veux modifier la description de mon restaurant</p>
+      <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "label label-primary"%>
+    </div>
+  <% end %>
+
+
+
+</div>
