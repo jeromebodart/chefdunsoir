@@ -1,8 +1,8 @@
 class ReservationsController < ApplicationController
-
   # POST   /restaurants/:restaurant_id/reservations
 
   def index
+    @reservations = Reservation.all
   end
 
   def create
@@ -19,6 +19,6 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:date)
+    params.require(:reservation).permit(:date).merge(user_id: current_user.id)
   end
 end
