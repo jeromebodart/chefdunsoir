@@ -1,7 +1,7 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon navbar-fixed-top">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
+    <%= image_tag "logo.svg", height: 50 %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -9,28 +9,28 @@
 
     <% if user_signed_in? %>
       <!-- Avatar with dropdown menu -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <% if current_user.image.attached? %>
-            <%= image_tag current_user.image, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <% end %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: current_user.email) %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to edit_user_registration_path do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-          </ul>
+      <div class="navbar-wagon-right hidden-xs hidden-sm">
+        <%= link_to "Ajouter un restaurant", new_restaurant_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <div class="navbar-wagon-item">
+          <div class="dropdown">
+            <% if current_user.image.attached? %>
+              <%= image_tag current_user.image, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <% end %>
+            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+              <li>
+                <%= link_to edit_user_registration_path do %>
+                  <i class="fa fa-user"></i> <%= t(".profile", default: current_user.email) %>
+                <% end %>
+              </li>
+              <li><%= link_to "Mes reservations", "" , class: "navbar-wagon-item navbar-wagon-link" %></li>
+              <li><%= link_to "Mon restaurants", "" , class: "navbar-wagon-item navbar-wagon-link" %></li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Deconnexion") %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     <% else %>

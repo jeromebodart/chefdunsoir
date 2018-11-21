@@ -1,4 +1,34 @@
-<table>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://www.pourcel-chefs-blog.com/blog1/wp-content/uploads/2014/02/chef-cuisine-.jpg');">
+  <div class="banner-content">
+    <h1>Chef d'un soir</h1>
+    <p>Une experience unique...</p>
+    <a class="btn btn-primary btn-lg">Réserver un restaurant</a>
+  </div>
+</div>
+
+
+<div class="container padding-container">
+  <div class="row">
+    <% @restaurants.each do |restaurant| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+          <div class="card-category"><%= restaurant.category %></div>
+          <div class="card-description">
+            <h2><%= restaurant.name %></h2>
+            <p><%= link_to 'Show', restaurant %></p>
+          </div>
+          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+          <%= link_to 'Show', restaurant,  class: "card-link"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+<!-- <table>
   <thead>
     <tr>
       <th>Name</th>
@@ -26,4 +56,4 @@
 <br>
 <% if user_signed_in? %>
 <%= link_to 'New Restaurant', new_restaurant_path %>
-<% end %>
+<% end %> -->
