@@ -7,7 +7,6 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if user_signed_in? %>
-         <a href="" class="navbar-wagon-item navbar-wagon-link">My reservations</a>
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-right hidden-xs hidden-sm">
         <%= link_to "Ajouter un restaurant", new_restaurant_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -15,6 +14,8 @@
           <div class="dropdown">
             <% if current_user.image.attached? %>
               <%= image_tag current_user.image, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <% else %>
+              <%= image_tag "", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
             <% end %>
             <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
               <li>
@@ -22,8 +23,8 @@
                   <i class="fa fa-user"></i> <%= t(".profile", default: current_user.email) %>
                 <% end %>
               </li>
-              <li><%= link_to "Mes reservations", "" , class: "navbar-wagon-item navbar-wagon-link" %></li>
-              <li><%= link_to "Mon restaurants", "" , class: "navbar-wagon-item navbar-wagon-link" %></li>
+              <li><%= link_to "Mes reservations", profile_reservations_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+              <li><%= link_to "Mon restaurant", "" , class: "navbar-wagon-item navbar-wagon-link" %></li>
               <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>
                   <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Deconnexion") %>

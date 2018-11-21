@@ -31,15 +31,6 @@
             <%= f.button :submit %>
           </div>
         <% end %>
-
-        <p>
-          <% if @reservations != nil %>
-            <strong> My reservations for this restaurant:</strong>
-            <% @reservations.each do |reservation| %>
-            <%= reservation.date %>
-            <% end %>
-          <% end %>
-        </p>
       </p>
     <% end %>
   </div>
