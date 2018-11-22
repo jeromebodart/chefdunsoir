@@ -90,7 +90,7 @@ reviews_attributes = [
   {
     description:         'très bon restaurant avec une équipe sympas',
     stars:               '3',
-    writter:             user1,
+    writter:             user3,
     restaurant:          resto_fr
   },
   {

@@ -21,6 +21,7 @@ class RestaurantsController < ApplicationController
     @reservation = Reservation.new
     if user_signed_in?
       @reservations = current_user.reservations
+      @review = Review.new
     end
   end
 

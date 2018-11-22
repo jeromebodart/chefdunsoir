@@ -53,28 +53,49 @@
     </div>
   <% end %>
 
-  <div class="card-restaurant">
-    <% @restaurant.reviews.each do |review| %>
-      <p>
-        <% for n in (1..review.stars) do %>
-          <span class="fa fa-star checked"></span>
+  <% @restaurant.reviews.each do |review| %>
+    <div class="card-message">
+      <div class="message">
+        <% if review.writter.image.attached? %>
+          <%= image_tag review.writter.image, class: "avatar-bordered" %>
         <% end %>
-        <% for n in (review.stars..5) do %>
-          <span class="fa fa-star"></span>
-        <% end %>
-      </p>
-      <p><%= review.description %></p>
-    <% end %>
-    <% if user_signed_in? && current_user.id != @restaurant.user %>
-      <input type="radio" name="choice-animals" id="choice-animals-dogs">
-      <label for="choice-animals-dogs">
-        Ajouter/Changer mon commentaire
-      </label>
-      <div class="reveal-if-active">
-        <input type="text">
-        @restaurant.reviews +=
+        <div class="message-name">
+          <h3>
+            <%= review.writter.firstname %>
+            <%= review.writter.lastname %>
+          </h3>
+          <p>
+            <%= review.updated_at %>
+          </p>
+        </div>
+        <div class="message-body">
+          <p>
+            <strong>
+              <% review.stars.times do %>
+                <span class="glyphicon glyphicon-star checked"></span>
+              <% end %>
+              <% review.blank_stars.times do %>
+                <span class="glyphicon glyphicon-star-empty "></span>
+              <% end %>
+            </strong>
+          </p>
+          <p>
+            <%= review.description %>
+          </p>
+        </div>
       </div>
-    <% end %>
-  </div>
-
+    </div>
+  <% end %>
+  <% if user_signed_in? && current_user.id != @restaurant.user %>
+    <div class="card-message add-comment">
+        <button id="review_button" class="btn btn-primary">Ajouter un commentaire</button>
+    </div>
+    <div id="review_section" class="card-message hidden">
+      <%= simple_form_for [@restaurant, @review] do |f| %>
+          <%= f.input :description, as: :text %>
+          <%= f.input :stars, collection: 1..5 %>
+          <%= f.submit "Envoyer", class: "btn btn-primary" %>
+       <% end %>
+    </div>
+  <% end %>
 </div>
