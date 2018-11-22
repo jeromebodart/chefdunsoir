@@ -1,8 +1,10 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "showrestaurant";
-
+@import "profilereservation";
+@import "newdevise";
 
 body {
   padding-top: 70px;
+  background-color: #f2f0f3;
 }

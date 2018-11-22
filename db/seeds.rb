@@ -9,9 +9,9 @@ description_user1 = "Bénéficiant de plus de sept ans d'expérience professionn
 description_user2 = "Titulaire du BTS Hôtellerie-restauration, j'ai pu mettre oeuvre mes acquis techniques et ma polyvalence à travers divers emplois dans la restauration. Actuellement chef adjoint dans la brigade du Chef **** du restaurant *****, je suis convaincu d'avoir développer l'ensemble des compétences requises pour prendre en charge les responsabilités liées au fonction de chef de cuisine."
 description_user3 = "Ce mois ci, on cuisine les courges en version sucrée et salée. Avez-vous entendu parler de la lactofermentation ? Notre article vous explique ses bienfaits et comment préparer des aliments lactofermentés.
 Nous vous souhaitons de bonnes dégustations."
-user1 = User.create!(email: "email1@example.com", password: 'azerty', phone_number: "+336666262", description: description_user1, firstname: "Jean-Valjean", lastname: "Misérables")
-user2 = User.create!(email: "email2@example.com", password: 'azerty', phone_number: "+336676262", description: description_user2, firstname: "toto", lastname: "tata")
-user3 = User.create!(email: "email3@example.com", password: 'azerty', phone_number: "+3365676262", description: description_user3, firstname: "titi", lastname: "tutu")
+user1 = User.create!(email: "email1@example.com", password: 'azerty', phone_number: "+336666262", description: description_user1, firstname: "Alexandre", lastname: "Bouvier")
+user2 = User.create!(email: "email2@example.com", password: 'azerty', phone_number: "+336676262", description: description_user2, firstname: "Kevin", lastname: "Chavanne")
+user3 = User.create!(email: "email3@example.com", password: 'azerty', phone_number: "+3365676262", description: description_user3, firstname: "Joseph", lastname: "Blanchard")
 
 puts 'Creating restaurants...'
 resto_fr = Restaurant.create!(

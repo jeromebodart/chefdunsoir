@@ -34,6 +34,7 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.images.attach(params[:restaurant][:images])
     if user_signed_in?
       @restaurant.user_id = current_user.id
       if @restaurant.save

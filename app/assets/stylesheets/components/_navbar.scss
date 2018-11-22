@@ -10,9 +10,71 @@
   justify-content: space-between;
 }
 
+.navbar-wagon-brand  {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
+  display: flex;
+}
+
+/* Barre de recherche */
+// .recherche {
+//   margin-left: 50px;
+
+// }
+
+.recherche  {
+  margin-left: 50px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #EBEBEB !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+  height: 48px !important;
+  transition: box-shadow 200ms;
+  background-color: #ffffff !important;
+  width: 400px;
+  font-weight: 40px;
+    #query::placeholder {
+        font-weight: bold;
+    }
+}
+
+.green {
+    font-color: green;
+}
+
+body:not(.user-is-tabbing) button:focus,
+body:not(.user-is-tabbing) input:focus,
+body:not(.user-is-tabbing) select:focus,
+body:not(.user-is-tabbing) textarea:focus {
+  outline: none;
+}
+
+.recherche input {
+  margin-left: 10px;
+  border: none;
+  width: 350px;
+  height: 30px;
+}
+
+.recherche input:hover {
+  margin-left: 10px;
+  border: none;
+  box-shadow: none;
+  width: 350px;
+  height: 30px;
+}
+
+.glyphicon {
+  margin-left: 10px;
+  color: gray;
 }
 
 /* User Avatar */
@@ -74,4 +136,8 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.form-control {
+  margin-top: 0px;
 }

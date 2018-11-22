@@ -1,0 +1,27 @@
+.form {
+  max-width: 544px;
+  background-color: white;
+  padding: 30px;
+}
+
+.formulaire-photo {
+  max-width: 600px;
+  max-height: 600px;
+}
+
+
+
+.simple_form label {
+  float: left;
+  width: 450px;
+  text-align: left;
+  margin: 20px 0px;
+}
+
+.simple_form input {
+  margin-bottom: 10px;
+  clear: both; /* Required for Webkit, but not for Gecko */
+}
+
+
+

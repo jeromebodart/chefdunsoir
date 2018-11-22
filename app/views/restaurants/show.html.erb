@@ -13,7 +13,16 @@
   </div>
 
   <div class="card-restaurant">
-    <h1><%= @restaurant.name %></h1>
+
+
+
+    <% @restaurant.images.each do |image| %>
+      <%= image_tag image, alt: "alttext" %>
+    <% end %>
+
+
+    <h2><%= @restaurant.name %></h2>
+
     <p>Categorie: <strong><%= @restaurant.category %></strong></p>
       <%= @restaurant.address %>
   </div>

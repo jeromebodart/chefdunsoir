@@ -1,5 +1,24 @@
-<h1>New Restaurant</h1>
+<div class="container">
 
-<%= render 'form', restaurant: @restaurant %>
+  <div class="titre">
+    <h1>Nouveau restaurant</h1>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <%= render 'form', restaurant: @restaurant %>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <%= image_tag'https://images.pexels.com/photos/1030973/pexels-photo-1030973.jpeg?cs=srgb&dl=berries-berry-chia-1030973.jpg&fm=jpg', class: "formulaire-photo" %>
+    </div>
+  </div>
 
-<%= link_to 'Back', restaurants_path %>
+
+
+  <%= link_to 'Retour', restaurants_path, class: "btn btn-primary" %>
+
+</div>
+
+
+
+
+
