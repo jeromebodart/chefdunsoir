@@ -40,7 +40,7 @@
                 <% end %>
               </li>
               <li><%= link_to "Mes reservations", profile_reservations_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
-              <li><%= link_to "Mon restaurant", "" , class: "navbar-wagon-item navbar-wagon-link" %></li>
+              <li><%= link_to "Mes restaurants", profile_restaurants_path , class: "navbar-wagon-item navbar-wagon-link" %></li>
               <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>
                   <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Deconnexion") %>
