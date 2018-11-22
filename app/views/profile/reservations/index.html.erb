@@ -1,5 +1,16 @@
-<% @reservations.each do |reservation| %>
-  <%= reservation.date %>
-  <td><%= link_to "Destroy",  profile_reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' }  %></td>
-<% end %>
+<div class="container">
+  <div class="card-restaurant" id="card-reservation">
+    <h2>Mes reservations :</h2>
+  </div>
+  <% @reservations.each do |reservation| %>
+    <div class="card-restaurant content-reservation">
+      <p> Vous avez une reservation dans le restaurant : <strong><%= reservation.restaurant.name %></strong> le <strong><%= l(reservation.date, format: '%A %d %B, %Y') %></strong> </p>
+      <p> a l'adresse: <%= link_to reservation.restaurant.address, restaurant_path(reservation.restaurant)  %>  </p>
+      <td><%= link_to "Annuler ma reservation",  profile_reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' }, class: "label label-primary"  %></td>
+    </div>
+  <% end %>
+</div>
+
+
+
 
