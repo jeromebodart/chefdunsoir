@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Editer mon profil <%= resource_name.to_s.humanize %></h2>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
@@ -6,8 +6,8 @@
     <%= f.input :image,
                 required: false,
                 autofocus: true ,
-                input_html: { autocomplete: "Upload une photo"
-                } %>
+                input_html: { autocomplete: "Upload une photo"},
+                label: "Changer de photo" %>
   </div>
 
   <div class="form-actions">
