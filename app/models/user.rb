@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :restaurants
   has_many :reservations, foreign_key: :chef_id
   has_one_attached :image
+
+  def fullname
+    [firstname, lastname].join(' ')
+  end
 end
