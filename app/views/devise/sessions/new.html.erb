@@ -1,22 +1,36 @@
-<h2>Se connecter</h2>
+<div class="container">
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email"
-                } %>
-    <%= f.input :password,
-                required: true,
-                input_html: { autocomplete: "current-password"},
-                label: "Mot de passe" %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  <div class="titre">
+    <h2>Se connecter</h2>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Se connecter" %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+        <div class="form">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email"
+                        } %>
+            <%= f.input :password,
+                        required: true,
+                        input_html: { autocomplete: "current-password"},
+                        label: "Mot de passe" %>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Se connecter", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+        <div class="lien-probleme">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <%= image_tag'https://images.pexels.com/photos/1030973/pexels-photo-1030973.jpeg?cs=srgb&dl=berries-berry-chia-1030973.jpg&fm=jpg', class: "formulaire-photo" %>
+    </div>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
