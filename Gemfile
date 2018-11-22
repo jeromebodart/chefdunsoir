@@ -20,6 +20,7 @@ gem 'awesome_print'
 gem 'cloudinary', require: false
 gem 'activestorage-cloudinary-service'
 gem "mini_magick"
+gem 'geocoder'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
