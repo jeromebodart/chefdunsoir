@@ -25,3 +25,11 @@
   display: flex;
   justify-content: center;
 }
+
+
+div.largfixe {
+  // width:800px;
+  overflow-x:scroll;
+  display: flex;
+  margin-bottom: 50px;
+}
