@@ -9,32 +9,37 @@
   </div>
 </div>
 
-
-<div id="container-restaurant-cards" class="container padding-container">
-  <div class="row">
-
-    <% 4.times do %>
-
-    <% @restaurants.each do |restaurant| %>
-      <div class="col-xs-12 col-sm-4 padding-bottom">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-          <div class="card-category"><%= restaurant.category %></div>
-          <div class="card-description">
-            <h2><%= restaurant.name %></h2>
-            <p><%= link_to 'Show', restaurant %></p>
-          </div>
-          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-          <%= link_to 'Show', restaurant,  class: "card-link"%>
-        </div>
-      </div>
-    <% end %>
-
+<div class="wrapper">
+  <div class="container">
+    <%= form_tag root_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a restaurant"
+      %>
     <% end %>
   </div>
+  <div id="container-restaurant-cards" class="container padding-container">
+    <div class="row">
+      <% 4.times do %>
+      <% @restaurants.each do |restaurant| %>
+        <div class="col-xs-12 col-sm-4 padding-bottom">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+            <div class="card-category"><%= restaurant.category %></div>
+            <div class="card-description">
+              <h2><%= restaurant.name %></h2>
+              <p><%= link_to 'Show', restaurant %></p>
+            </div>
+            <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+            <%= link_to 'Show', restaurant,  class: "card-link"%>
+          </div>
+        </div>
+      <% end %>
+
+      <% end %>
+    </div>
+  </div>
 </div>
-
-
-
 
 <!-- <table>
   <thead>
