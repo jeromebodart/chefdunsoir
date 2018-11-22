@@ -3,3 +3,17 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.form-check {
+  display: flex;
+  align-items: center;
+
+}
+
+.form-check-label.boolean.optional {
+  padding-left: 10px;
+}
+
+.form-check-input.boolean.optional {
+  margin: 20px 0px;
+}
