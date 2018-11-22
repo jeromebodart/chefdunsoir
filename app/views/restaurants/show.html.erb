@@ -1,25 +1,16 @@
 <div class="container">
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <%= image_tag'https://ritzcarlton-h.assetsadobe.com/is/image/content/dam/the-ritz-carlton/hotels/usa-and-canada/massachusetts/boston-common/dining/RCBC%20Artisan%20Bistro.png?$LargeViewport100pct$', class: "photo-restaurant" %>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <%= image_tag'https://www.demangel.fr/sites/default/files/inline-images/cuisine_collective/cuisine_collective_3.jpg', class: "photo-restaurant" %>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <%= image_tag'https://www.demangel.fr/sites/default/files/inline-images/cuisine_collective/cuisine_collective_11.jpg', class: "photo-restaurant" %>
-    </div>
+
+
+  <div class="largfixe">
+      <% @restaurant.images.each do |image| %>
+      <div>
+        <%= image_tag image, alt: "alttext", class: "photo-restaurant" %>
+      </div>
+    <% end %>
   </div>
 
   <div class="card-restaurant">
-
-
-
-    <% @restaurant.images.each do |image| %>
-      <%= image_tag image, alt: "alttext" %>
-    <% end %>
-
 
     <h2><%= @restaurant.name %></h2>
 
