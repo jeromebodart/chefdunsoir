@@ -19,7 +19,6 @@
   </div>
 
   <div class="card-restaurant">
-    <% if user_signed_in? %>
       <p>
         <strong>Faire une reservation</strong>
         <%= simple_form_for [@restaurant, @reservation] do |f| %>
@@ -32,7 +31,6 @@
           </div>
         <% end %>
       </p>
-    <% end %>
   </div>
 
   <%= link_to "Retour à l'accueil", restaurants_path, class: "label label-primary"%>
