@@ -37,13 +37,35 @@
 
   <%= link_to "Retour à l'accueil", restaurants_path, class: "label label-primary"%>
 
-  <% if current_user == @restaurant.user %>
+  <% if user_signed_in? && current_user == @restaurant.user %>
     <div class="card-restaurant">
       <p>Je veux modifier la description de mon restaurant</p>
       <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "label label-primary"%>
     </div>
   <% end %>
 
-
+  <div class="card-restaurant">
+    <% @restaurant.reviews.each do |review| %>
+      <p>
+        <% for n in (1..review.stars) do %>
+          <span class="fa fa-star checked"></span>
+        <% end %>
+        <% for n in (review.stars..5) do %>
+          <span class="fa fa-star"></span>
+        <% end %>
+      </p>
+      <p><%= review.description %></p>
+    <% end %>
+    <% if user_signed_in? && current_user.id != @restaurant.user %>
+      <input type="radio" name="choice-animals" id="choice-animals-dogs">
+      <label for="choice-animals-dogs">
+        Ajouter/Changer mon commentaire
+      </label>
+      <div class="reveal-if-active">
+        <input type="text">
+        @restaurant.reviews +=
+      </div>
+    <% end %>
+  </div>
 
 </div>
