@@ -11,7 +11,7 @@ description_user3 = "Ce mois ci, on cuisine les courges en version sucrée et sa
 Nous vous souhaitons de bonnes dégustations."
 user1 = User.create!(email: "email1@example.com", password: 'azerty', phone_number: "+336666262", description: description_user1, firstname: "Jean-Valjean", lastname: "Misérables")
 user2 = User.create!(email: "email2@example.com", password: 'azerty', phone_number: "+336676262", description: description_user2, firstname: "toto", lastname: "tata")
-user3 = User.create!(email: "email3@example.com", password: 'azerty', phone_number: "+3365676262", description: description_user3)
+user3 = User.create!(email: "email3@example.com", password: 'azerty', phone_number: "+3365676262", description: description_user3, firstname: "titi", lastname: "tutu")
 
 puts 'Creating restaurants...'
 resto_fr = Restaurant.create!(
@@ -90,7 +90,7 @@ reviews_attributes = [
   {
     description:         'très bon restaurant avec une équipe sympas',
     stars:               '3',
-    writter:             user1,
+    writter:             user3,
     restaurant:          resto_fr
   },
   {
