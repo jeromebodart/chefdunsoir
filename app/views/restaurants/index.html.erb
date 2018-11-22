@@ -10,15 +10,7 @@
 </div>
 
 <div class="wrapper">
-  <div class="container">
-    <%= form_tag root_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a restaurant"
-      %>
-    <% end %>
-  </div>
+
   <div id="container-restaurant-cards" class="container padding-container">
     <div class="row">
       <% 4.times do %>
