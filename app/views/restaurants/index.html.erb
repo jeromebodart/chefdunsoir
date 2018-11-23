@@ -9,72 +9,27 @@
   </div>
 </div>
 
-<div class="wrapper">
-  <div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+<div class="container home-wrapper">
 
-  <div id="container-restaurant-cards" class="container padding-container">
-    <div class="row">
-      <% 4.times do %>
-      <% @restaurants.each do |restaurant| %>
-        <div class="col-xs-12 col-sm-4 padding-bottom">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-            <div class="card-category"><%= restaurant.category %></div>
-            <div class="card-description">
-              <h2><%= restaurant.name %></h2>
-              <p>
-                <% rating = restaurant.reviews.map{ |t| t[:stars] }.reduce(:+)/restaurant.reviews.size %>
-                  <% rating.times do %>
-                    <span class="glyphicon glyphicon-star checked"></span>
-                  <% end %>
-                  <% (5-rating).times do %>
-                    <span class="glyphicon glyphicon-star-empty "></span>
-                  <% end %>
-              </p>
-              <p><%= link_to 'Show', restaurant %></p>
+
+
+      <div id="container-restaurant-cards" class="padding-container">
+        <div class="row">
+            <div class="restaurants">
+                <%= render 'restaurant_cards', restaurant: @restaurants %>
             </div>
-            <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-            <%= link_to 'Show', restaurant,  class: "card-link"%>
-          </div>
         </div>
-      <% end %>
+      </div>
 
-      <% end %>
-    </div>
-  </div>
+
+
+      <div
+        id="map"
+
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
+
+
 </div>
 
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Category</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @restaurants.each do |restaurant| %>
-      <tr>
-        <td><%= restaurant.name %></td>
-        <td><%= restaurant.address %></td>
-        <td><%= restaurant.category %></td>
-        <td><%= link_to 'Show', restaurant %></td>
-      <% if user_signed_in? %>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<% if user_signed_in? %>
-<%= link_to 'New Restaurant', new_restaurant_path %>
-<% end %> -->
