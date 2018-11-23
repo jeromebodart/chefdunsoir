@@ -15,6 +15,16 @@ class RestaurantsController < ApplicationController
     else
       @restaurants = Restaurant.all
     end
+    @restaurants = @restaurants.where.not(latitude: nil, longitude: nil)
+    @markers = @restaurants.map do |restaurant|
+      {
+        lng: restaurant.longitude,
+        lat: restaurant.latitude,
+        infoWindow: { content: render_to_string("../views/restaurants/map_window.html.erb", locals: { restaurant: restaurant }) }
+        # infoWindow: { content: "<h1>#{restaurant.name}</h1>" }
+
+      }
+    end
   end
 
   def show
