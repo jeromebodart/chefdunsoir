@@ -56,3 +56,28 @@
 #container-restaurant-cards {
   width: 600px;
 }
+
+.banner-content {
+  padding: 0 600px 0 100px;
+  text-align: left;
+}
+
+.reserver {
+  padding: 20px 70px;
+  background-color: white;
+  color: rgb(72, 72, 72);
+  font-size: 16px;
+}
+
+.label.label-primary.reserver:hover {
+  padding: 20px 70px;
+  background-color: white;
+  color: rgb(72, 72, 72);
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.card-user {
+  height: 40px;
+  width: 40px;
+}

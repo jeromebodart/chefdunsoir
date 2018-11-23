@@ -15,9 +15,9 @@
               <% end %>
           </p>
         <% end %>
-        <p><%= link_to 'Show', restaurant %></p>
+        <!-- <p><%= link_to 'Show', restaurant %></p> -->
       </div>
-      <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+      <img class="card-user" src="<%= image_url_for_user_image(restaurant) %>">
       <%= link_to 'Show', restaurant,  class: "card-link"%>
     </div>
   </div>
