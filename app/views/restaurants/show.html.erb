@@ -36,8 +36,8 @@
       </p>
   </div>
 
-  <div class="card-restaurant">
-    <% if @restaurant.reviews.present? %>
+  <% if @restaurant.reviews.present? %>
+    <div class="card-restaurant">
       <% @restaurant.reviews.each do |review| %>
         <div class="card-message">
           <div class="message">
@@ -71,8 +71,8 @@
           </div>
         </div>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
   <% if user_signed_in? && current_user.id != @restaurant.user %>
     <div class="card-message add-comment">
         <button id="review_button" class="btn btn-primary link">Ajouter un commentaire</button>
