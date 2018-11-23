@@ -1,21 +1,23 @@
 <div class="container">
-
-
-
-  <div class="largfixe">
-      <% @restaurant.images.each do |image| %>
-      <div>
-        <%= image_tag image, alt: "alttext", class: "photo-restaurant" %>
-      </div>
-    <% end %>
-  </div>
+  <%= link_to "Retour à l'accueil", restaurants_path, class: "label label-primary link"%>
 
   <div class="card-restaurant">
-
-    <h2><%= @restaurant.name %></h2>
+    <div class="bar-title">
+      <h2><%= @restaurant.name %></h2>
+      <% if user_signed_in? && current_user == @restaurant.user %>
+          <%= link_to 'Modifier mon restaurant', edit_restaurant_path(@restaurant), class: "label label-primary link"%>
+      <% end %>
+    </div>
+    <div class="largfixe">
+        <% @restaurant.images.each do |image| %>
+        <div>
+          <%= image_tag image, alt: "alttext", class: "photo-restaurant" %>
+        </div>
+      <% end %>
+    </div>
 
     <p>Categorie: <strong><%= @restaurant.category %></strong></p>
-      <%= @restaurant.address %>
+    <p>Localisation: <strong><%= @restaurant.address %></strong></p>
   </div>
 
   <div class="card-restaurant">
@@ -33,14 +35,7 @@
       </p>
   </div>
 
-  <%= link_to "Retour à l'accueil", restaurants_path, class: "label label-primary"%>
 
-  <% if user_signed_in? && current_user == @restaurant.user %>
-    <div class="card-restaurant">
-      <p>Je veux modifier la description de mon restaurant</p>
-      <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "label label-primary"%>
-    </div>
-  <% end %>
 
   <% @restaurant.reviews.each do |review| %>
     <div class="card-message">
@@ -77,7 +72,7 @@
   <% end %>
   <% if user_signed_in? && current_user.id != @restaurant.user %>
     <div class="card-message add-comment">
-        <button id="review_button" class="btn btn-primary">Ajouter un commentaire</button>
+        <button id="review_button" class="btn btn-primary link">Ajouter un commentaire</button>
     </div>
     <div id="review_section" class="card-message hidden">
       <%= simple_form_for [@restaurant, @review] do |f| %>

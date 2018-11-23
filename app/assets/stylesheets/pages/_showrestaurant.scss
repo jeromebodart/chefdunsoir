@@ -8,9 +8,12 @@
   border: 1px solid #EBEBEB !important;
   border-radius: 4px !important;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05) !important;
-  padding: 24px !important;
+  background-size: cover !important;
+  background-position: center;
+  padding: 10px !important;
   background-color: white;
   margin-bottom: 30px;
+  position: relative;
 }
 
 .checked {
@@ -32,4 +35,21 @@ div.largfixe {
   overflow-x:scroll;
   display: flex;
   margin-bottom: 50px;
+}
+
+.bar-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px 30px;
+}
+
+.link {
+  color: #7c7c7c;
+  border-radius: 4px;
+  background: #f8f8f8;
+  border: 1px solid #c6c6c6;
+  background-image: linear-gradient(top, #f8f8f8, #f1f1f1);
+
 }

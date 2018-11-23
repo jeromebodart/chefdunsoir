@@ -1,12 +1,26 @@
 <div class="container">
 
-  <h1>Editer un restaurant</h1>
+  <div class="titre">
+    <h1>Editer un restaurant</h1>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <%= render 'form', restaurant: @restaurant %>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <%= image_tag'http://mister-riviera.com/wp-content/uploads/2017/12/La-Belle-Etoile-restaurant-Manuel-Dupont-Tamara-Giorko-Villefranche-sur-Mer-Blog-Mister-Riviera-2017-Cote-dAzur-France-Photo-Mickael-Mugnaini-03.jpg', class: "formulaire-photo" %>
+    </div>
+  </div>
 
-  <%= render 'form', restaurant: @restaurant %>
 
-  <%= link_to 'Restaurant', @restaurant %> |
-  <%= link_to 'Retour', restaurants_path %>
-  <%= link_to 'Ajouter un commentaire', reviews_path %>
 
+  <%= link_to 'Retour', restaurants_path, class: "btn btn-primary" %>
 
 </div>
+
+
+
+
+
+
+
