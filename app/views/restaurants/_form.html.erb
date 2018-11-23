@@ -10,6 +10,7 @@
 
       <%= f.input :category, collection: [ "Français", "Chinois", "Thaï", "Japonaise", "Belge", "Indienne", "Autre"], label: 'Choisissez maintenant un type de cuisine' %>
       <%= f.input :address, label: "Quelle est l'adresse de votre restaurant" %>
+      <%= f.input :description, label: "Decrivez en quelques mots votre restaurant" %>
       <p>Merci d'ajouter au moins une image de votre restaurant que pourront voir les utilsateurs</p>
       <%= f.file_field :images,
                   multiple: true,
