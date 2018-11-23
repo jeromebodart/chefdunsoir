@@ -33,12 +33,12 @@
   margin-left: 50px;
   display: flex;
   align-items: center;
-  border: 1px solid #EBEBEB !important;
-  border-radius: 4px !important;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
-  height: 48px !important;
+  border: 1px solid #EBEBEB;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: 48px;
   transition: box-shadow 200ms;
-  background-color: #ffffff !important;
+  background-color: #ffffff;
   width: 400px;
   font-weight: 40px;
     #query::placeholder {
@@ -62,6 +62,7 @@ body:not(.user-is-tabbing) textarea:focus {
   border: none;
   width: 350px;
   height: 30px;
+  background-color: white;
 }
 
 .recherche input:hover {
@@ -70,6 +71,10 @@ body:not(.user-is-tabbing) textarea:focus {
   box-shadow: none;
   width: 350px;
   height: 30px;
+  background-color: white;
+}
+.query {
+  background-color: white;
 }
 
 .glyphicon {

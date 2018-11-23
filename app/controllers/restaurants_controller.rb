@@ -12,6 +12,7 @@ class RestaurantsController < ApplicationController
       # restaurants.longitude @@ :query \
       # restaurants.latitude @@ :query \
       @restaurants = Restaurant.where(sql_query, query: "%#{params[:query]}%")
+
     else
       @restaurants = Restaurant.all
     end
@@ -20,8 +21,8 @@ class RestaurantsController < ApplicationController
       {
         lng: restaurant.longitude,
         lat: restaurant.latitude,
-        infoWindow: { content: render_to_string("../views/restaurants/map_window.html.erb", locals: { restaurant: restaurant }) }
-        # infoWindow: { content: "<h1>#{restaurant.name}</h1>" }
+        # infoWindow: { content: render_to_string("../views/restaurants/map_window.html.erb", locals: { restaurant: restaurant }) }
+        infoWindow: { content: "<p>#{restaurant.name}</p>" }
 
       }
     end
