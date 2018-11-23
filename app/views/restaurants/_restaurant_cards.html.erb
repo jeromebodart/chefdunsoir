@@ -1,22 +1,24 @@
-             <% @restaurants.each do |restaurant| %>
-                <div class="col-xs-12 col-sm-6 padding-bottom">
-                  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_url_for(restaurant) %>');">
-                    <div class="card-category"><%= restaurant.category %></div>
-                    <div class="card-description">
-                      <h2><%= restaurant.name %></h2>
-                      <p>
-                        <% rating = restaurant.reviews.map{ |t| t[:stars] }.reduce(:+)/restaurant.reviews.size %>
-                          <% rating.times do %>
-                            <span class="glyphicon glyphicon-star checked"></span>
-                          <% end %>
-                          <% (5-rating).times do %>
-                            <span class="glyphicon glyphicon-star-empty "></span>
-                          <% end %>
-                      </p>
-                      <p><%= link_to 'Show', restaurant %></p>
-                    </div>
-                    <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-                    <%= link_to 'Show', restaurant,  class: "card-link"%>
-                  </div>
-                </div>
+<% @restaurants.each do |restaurant| %>
+  <div class="col-xs-12 col-sm-6 padding-bottom">
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_url_for(restaurant) %>');">
+      <div class="card-category"><%= restaurant.category %></div>
+      <div class="card-description">
+        <h2><%= restaurant.name %></h2>
+        <% if restaurant.reviews.present? %>
+          <p>
+            <% rating = restaurant.reviews.map{ |t| t[:stars] }.reduce(:+)/restaurant.reviews.size %>
+              <% rating.times do %>
+                <span class="glyphicon glyphicon-star checked"></span>
               <% end %>
+              <% (5-rating).times do %>
+                <span class="glyphicon glyphicon-star-empty "></span>
+              <% end %>
+          </p>
+        <% end %>
+        <p><%= link_to 'Show', restaurant %></p>
+      </div>
+      <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+      <%= link_to 'Show', restaurant,  class: "card-link"%>
+    </div>
+  </div>
+<% end %>

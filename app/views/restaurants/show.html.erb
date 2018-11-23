@@ -35,41 +35,43 @@
       </p>
   </div>
 
-
-
-  <% @restaurant.reviews.each do |review| %>
-    <div class="card-message">
-      <div class="message">
-        <% if review.writter.image.attached? %>
-          <%= image_tag review.writter.image, class: "avatar-bordered" %>
-        <% end %>
-        <div class="message-name">
-          <h3>
-            <%= review.writter.firstname %>
-            <%= review.writter.lastname %>
-          </h3>
-          <p>
-            <%= review.updated_at %>
-          </p>
+  <div class="card-restaurant">
+    <% if @restaurant.reviews.present? %>
+      <% @restaurant.reviews.each do |review| %>
+        <div class="card-message">
+          <div class="message">
+            <% if review.writter.image.attached? %>
+              <%= image_tag review.writter.image, class: "avatar-bordered" %>
+            <% end %>
+            <div class="message-name">
+              <h3>
+                <%= review.writter.firstname %>
+                <%= review.writter.lastname %>
+              </h3>
+              <p>
+                <%= review.updated_at %>
+              </p>
+            </div>
+            <div class="message-body">
+              <p>
+                <strong>
+                  <% review.stars.times do %>
+                    <span class="glyphicon glyphicon-star checked"></span>
+                  <% end %>
+                  <% review.blank_stars.times do %>
+                    <span class="glyphicon glyphicon-star-empty "></span>
+                  <% end %>
+                </strong>
+              </p>
+              <p>
+                <%= review.description %>
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="message-body">
-          <p>
-            <strong>
-              <% review.stars.times do %>
-                <span class="glyphicon glyphicon-star checked"></span>
-              <% end %>
-              <% review.blank_stars.times do %>
-                <span class="glyphicon glyphicon-star-empty "></span>
-              <% end %>
-            </strong>
-          </p>
-          <p>
-            <%= review.description %>
-          </p>
-        </div>
-      </div>
-    </div>
-  <% end %>
+      <% end %>
+    <% end %>
+  </div>
   <% if user_signed_in? && current_user.id != @restaurant.user %>
     <div class="card-message add-comment">
         <button id="review_button" class="btn btn-primary link">Ajouter un commentaire</button>
