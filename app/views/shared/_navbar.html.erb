@@ -9,7 +9,7 @@
     <div class="recherche">
         <span class="glyphicon glyphicon-search"></span>
         <span>
-          <%= form_tag root_path, method: :get do %>
+          <%= form_tag restaurants_path, method: :get, remote: true do %>
             <%= text_field_tag :query,
               params[:query],
               placeholder: "Essayer < Lyon >"

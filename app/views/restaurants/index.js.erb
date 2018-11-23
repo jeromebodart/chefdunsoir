@@ -1,0 +1,29 @@
+console.log("click");
+
+// document.querySelector('.restaurants').remove();
+
+
+function updateRestaurant(reviewHTML) {
+  const restaurants = document.querySelector('.restaurants');
+  restaurants.innerHTML = reviewHTML;
+}
+
+
+const scroll = () => {
+  console.log("scroll")
+  const recherche = document.querySelector('.recherche');
+  const element = document.querySelector('#container-restaurant-cards');
+    if (recherche) {
+      // recherche.addEventListener('submit', function(e) {
+      // e.preventDefault();
+      // console.log("click");
+      const topPosition = element.offsetTop - document.querySelector('.navbar-wagon').offsetHeight
+      window.scroll({top: topPosition, behavior: "smooth"})
+    // });
+  }
+}
+
+updateRestaurant('<%= j render "restaurants/restaurant_cards", restaurant: @restaurants %>');
+scroll();
+
+
