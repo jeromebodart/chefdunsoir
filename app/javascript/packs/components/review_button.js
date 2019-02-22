@@ -4,7 +4,6 @@ function reviewButton() {
     const available = document.querySelector('#review_button');
     const review_form = document.querySelector('#review_section');
 
-    console.log("je suis dans init");
 
     if (available && review_form) {
       available.addEventListener("click", (event) => {
